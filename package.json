@@ -1,0 +1,14 @@
+{
+  "name": "kanegate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 4173 --directory app",
+    "verify": "bash scripts/deploy-gate.sh",
+    "test": "kane-cli testmd run tests/checkout_test.md --agent --headless"
+    },
+  "devDependencies": {
+    "@testmuai/kane-cli": "^0.10.6"
+    },
+  "dependencies": {}
+}

@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f9f9f9;
+}
+header, main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+.product h3 {
+    margin: 0;
+}
+.price {
+    font-weight: bold;
+    color: #333;
+}
+.add-to-cart {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#cart-items {
+    margin: 20px 0;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+#cart-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+#coupon-section {
+    margin: 15px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#coupon {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#apply-coupon {
+    padding: 6px 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#coupon-message {
+    color: #155724;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+#discount-display {
+    color: #721c24;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+.hidden {
+    display: none;
+}
+#checkout {
+    padding: 10px 20px;
+    background: #17a2b8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+}
+#confirmation {
+    text-align: center;
+    padding: 30px;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin-top: 20px;
+}
