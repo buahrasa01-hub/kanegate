@@ -10,7 +10,7 @@ Click "Add to Cart" on the first product (Product 1) and confirm it appears in t
 Enter "SAVE10" in the coupon code field and click "Apply". Verify the success message "Coupon SAVE10 applied" appears and the discount line is shown.
 
 ## Step 4: Verify discount
-Confirm the cart total is reduced by exactly 10% from the original total (e.g., from $29.99 to $26.99).
+Read the 'Total:' line in the cart. Confirm it reads exactly $26.99 (the original $29.99 minus 10%). The total must be $26.99, not $29.99 — do not infer the discount from the discount line alone; check the Total value itself.
 
 ## Step 5: Proceed to checkout
 Click the "Checkout" button and verify the confirmation section becomes visible.

@@ -1,9 +1,9 @@
 // Kane's Corner Store logic
-// SEEDED BUG (v1, intentional — Kane run 1 must FAIL on it):
-// applying coupon SAVE10 shows the success message and the discount line,
-// but the cart total is NEVER reduced. The fix (v2) is to call
-// updateTotalDisplay() from applyCoupon() after setting discountAmount,
-// and to route updateCartDisplay() through updateTotalDisplay() too.
+// v2 (19 Nov 2026): coupon bug FIXED — Kane run 1 failed on it
+// ("Total remains $29.99 despite SAVE10"), fix applied per Kane's
+// failing-step remark: updateTotalDisplay() is now called from
+// applyCoupon() after setting discountAmount, and updateCartDisplay()
+// routes through updateTotalDisplay(). Total after SAVE10: $26.99.
 
 const cart = [];
 let couponApplied = false;
@@ -22,16 +22,15 @@ function addToCart(event) {
 function updateCartDisplay() {
     const itemsDiv = document.getElementById('cart-items');
     itemsDiv.innerHTML = '';
-    let total = 0;
     cart.forEach(item => {
-        total += item.price;
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `<span>Product ${item.id}</span><span>$${item.price.toFixed(2)}</span>`;
         itemsDiv.appendChild(div);
     });
-    // BUG (v1): total display ignores discountAmount — always the raw sum.
-    document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+    // v2 fix: total display goes through updateTotalDisplay(),
+    // the single source of truth that subtracts discountAmount.
+    updateTotalDisplay();
 }
 
 // Apply coupon
@@ -52,8 +51,9 @@ function applyCoupon() {
         // Show discount line with the real discount amount
         discountDisplay.textContent = `Discount: -$${discountAmount.toFixed(2)}`;
         discountDisplay.classList.remove('hidden');
-        // BUG (v1): updateTotalDisplay() is deliberately NOT called here,
-        // so the total stays at the raw sum even though the discount line shows.
+        // v2 fix (Kane run 1 remark): recalculate the displayed total
+        // now that discountAmount is set, so Total drops to $26.99.
+        updateTotalDisplay();
     } else if (code === '' && couponApplied) {
         // Reset coupon
         couponApplied = false;

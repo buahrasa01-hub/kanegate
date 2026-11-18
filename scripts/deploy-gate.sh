@@ -6,6 +6,13 @@ PORT="${PORT:-4173}"
 APP_URL="${APP_URL:-http://localhost:${PORT}}"
 SERVER_PID=""
 
+# httpx inside Kane's v16-runner crashes while building its LLM client when
+# NO_PROXY contains bare/bracketed IPv6 literals (e.g. ::1, [::1]):
+# "httpx.InvalidURL: Invalid port: ':1]'". Local verification only ever
+# needs localhost to bypass the proxy, so pin a safe value here.
+export NO_PROXY="localhost,127.0.0.1"
+export no_proxy="localhost,127.0.0.1"
+
 # Always run from the repo root (this script lives in scripts/).
 cd "$(dirname "$0")/.."
 
