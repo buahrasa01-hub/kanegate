@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kane's Corner Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kane's Corner Store</h1>
+    </header>
+    <main>
+        <section id="products">
+            <div class="product" data-id="1" data-price="29.99">
+                <h3>Product 1</h3>
+                <p class="price">$29.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-price="19.99">
+                <h3>Product 2</h3>
+                <p class="price">$19.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="3" data-price="39.99">
+                <h3>Product 3</h3>
+                <p class="price">$39.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+        <section id="cart">
+            <h2>Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">Total: $0.00</div>
+            <div id="coupon-section">
+                <label for="coupon">Coupon Code:</label>
+                <input type="text" id="coupon" placeholder="Enter code">
+                <button id="apply-coupon">Apply</button>
+            </div>
+            <div id="coupon-message" class="hidden"></div>
+            <div id="discount-display" class="hidden">Discount: -$0.00</div>
+            <button id="checkout">Checkout</button>
+        </section>
+        <section id="confirmation" class="hidden">
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase.</p>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
